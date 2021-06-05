@@ -4,6 +4,7 @@ from blogging.models import Post, Category
 
 # Register your models here.
 
+
 class CategoryInline(admin.TabularInline):
     model = Category
 
@@ -11,7 +12,6 @@ class CategoryInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     Inlines = [
         CategoryInline,
-
     ]
 
 
