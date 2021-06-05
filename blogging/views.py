@@ -18,9 +18,10 @@ def stub_view(request, *args, **kwargs):
 
 def list_view(request):
     published = Post.objects.exclude(published_date__exact=None)
-    posts = published.order_by('-published_date')
-    context = {'posts': posts}
-    return render(request, 'list.html', context)
+    posts = published.order_by("-published_date")
+    context = {"posts": posts}
+    return render(request, "list.html", context)
+
 
 def detail_view(request, post_id):
     published = Post.objects.exclude(published_date__exact=None)
@@ -28,5 +29,5 @@ def detail_view(request, post_id):
         post = published.get(pk=post_id)
     except Post.DoesNotExist:
         raise Http404
-    context = {'post': post}
-    return render(request, 'blogging/detail.html', context)
+    context = {"post": post}
+    return render(request, "blogging/detail.html", context)
